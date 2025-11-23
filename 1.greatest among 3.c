@@ -1,4 +1,4 @@
-// 1.    Wap to print geratest among the 3 numbers-using function
+// 1.    Wap to print greatest among the three numbers-using function
 
 #include<stdio.h>
 int Greatest(int a,int b,int c);
@@ -21,4 +21,5 @@ else{
 
 
     
+
 
