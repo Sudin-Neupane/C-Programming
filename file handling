@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char data[100];
+
+
+    
+    fp = fopen("example.txt", "w");  
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+
+    fprintf(fp, "Hello! This is written to the file.\n");
+    fclose(fp);
+    fp = fopen("example.txt", "a");  // Append mode
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    fprintf(fp, "This line is appended to the file.\n");
+    fclose(fp);
+
+    // ---- 3. Reading the file ----
+    fp = fopen("example.txt", "r");  
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    printf("Reading file content:\n");
+    while (fgets(data, sizeof(data), fp)) {
+        printf("%s", data); 
+    }
+    fclose(fp);
+
+    return 0;
+}
