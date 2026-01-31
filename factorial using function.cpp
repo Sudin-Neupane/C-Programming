@@ -14,8 +14,9 @@ int fact(int x){
 	
 	int fact=1;
 	int i;
-	for(i=1;i<x;i++){
+	for(i=1;i<=x;i++){
 		fact=fact*i;
 	}
 	return fact;
 }
+
