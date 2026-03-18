@@ -1,0 +1,38 @@
+//Question: Write a program using structure to store student details and search a student by roll number.
+
+#include<stdio.h>
+
+struct Student{
+int roll;
+char name[50];
+float marks;
+};
+
+int main(){
+struct Student s[3];
+int i,search,found=0;
+
+for(i=0;i<3;i++){
+printf("Enter roll, name and marks of student %d: ",i+1);
+scanf("%d %s %f",&s[i].roll,s[i].name,&s[i].marks);
+}
+
+printf("\nEnter roll number to search: ");
+scanf("%d",&search);
+
+for(i=0;i<3;i++){
+if(s[i].roll==search){
+printf("\nStudent Found:\n");
+printf("Roll: %d\n",s[i].roll);
+printf("Name: %s\n",s[i].name);
+printf("Marks: %.2f\n",s[i].marks);
+found=1;
+break;
+}
+}
+
+if(found==0)
+printf("Student not found");
+
+return 0;
+}
