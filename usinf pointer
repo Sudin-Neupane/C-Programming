@@ -1,0 +1,36 @@
+//Question: Write a program using structure and pointer to find the employee with the longest name.
+
+#include<stdio.h>
+#include<string.h>
+
+struct Employee{
+int id;
+char name[50];
+float salary;
+};
+
+int main(){
+struct Employee e[3];
+struct Employee *ptr;
+int i,maxIndex=0;
+
+ptr = e;
+
+for(i=0;i<3;i++){
+printf("Enter id, name and salary of employee %d: ",i+1);
+scanf("%d %s %f",&(ptr+i)->id,(ptr+i)->name,&(ptr+i)->salary);
+}
+
+for(i=1;i<3;i++){
+if(strlen((ptr+i)->name) > strlen((ptr+maxIndex)->name)){
+maxIndex = i;
+}
+}
+
+printf("\nEmployee with Longest Name:\n");
+printf("ID: %d\n",(ptr+maxIndex)->id);
+printf("Name: %s\n",(ptr+maxIndex)->name);
+printf("Salary: %.2f\n",(ptr+maxIndex)->salary);
+
+return 0;
+}
